@@ -1,3 +1,5 @@
+const path=require('path')
+
 const users=[
     {
         id:1,
@@ -5,13 +7,8 @@ const users=[
     }
 ];
 const getallUsers=(req,res)=>{
- if(users.length==0){
-    res.send("No users yet")
- }else{
-
- res.send(`Fetching all users ${users}`)
- }
-
+ 
+ res.sendFile(path.join(__dirname,"..","views","getAllUsers.html"))
  
 
 }

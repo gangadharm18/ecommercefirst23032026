@@ -9,7 +9,7 @@ const productRoute=require('./routes/productRoute.js')
 
 app.use('/cart',cartRoute)
 app.use('/users',usersRoute)
-app.use('/products',productRoute)
+app.use('/api/products',productRoute)
 
 
 app.use((req,res)=>{
