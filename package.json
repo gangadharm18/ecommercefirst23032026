@@ -20,7 +20,10 @@
   },
   "homepage": "https://github.com/gangadharm18/ecommercefirst23032026#readme",
   "dependencies": {
-    "express": "^5.2.1",
+    "axios": "^1.13.6",
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
     "nodemon": "^3.1.14"
   }
 }

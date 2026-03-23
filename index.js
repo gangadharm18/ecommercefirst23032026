@@ -1,10 +1,15 @@
 const express=require('express')
 const app=express();
 app.use(express.json());
+const path=require('path')
+
+app.use(express.static(path.join(__dirname, "public")));
+
 
 const cartRoute=require('./routes/cartRoute.js')
 const usersRoute=require('./routes/userRoute.js')
 const productRoute=require('./routes/productRoute.js')
+
 
 
 app.use('/cart',cartRoute)
@@ -14,7 +19,7 @@ app.use('/api/products',productRoute)
 
 app.use((req,res)=>{
 
-    res.send("Page not found")
+   res.send("Page not found")
 
 })
 
@@ -22,6 +27,6 @@ app.use((req,res)=>{
 
 app.listen(3000,()=>{
 
-    console.log('server started')
+   console.log('server started')
 
 })
