@@ -1,3 +1,4 @@
+const products=[]
 const productPost=(req,res)=>{
    
   res.status(201).send(`Adding a new product`)
