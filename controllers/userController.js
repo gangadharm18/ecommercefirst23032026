@@ -1,4 +1,5 @@
 const path=require('path')
+const {sendErrorResponse,sendResponse}=require('../utils/response')
 
 const users=[
     {
@@ -17,9 +18,11 @@ const getuserById=(req,res)=>{
  const userId=parseInt(req.params.id)
  const user=users.find(u=>u.id===userId)
  if(user){
-  res.send(`Fetching user with ID ${userId}: ${user.name}`)
+//   res.send(`Fetching user with ID ${userId}: ${user.name}`)
+     sendResponse(res,200,user)
  }else {
-    res.send('user not found')
+    // res.send('user not found')
+    sendErrorResponse(res,{message:"user not found",statusCode:404})
  }
  
 }
@@ -27,7 +30,8 @@ const getuserById=(req,res)=>{
 const postUser=(req,res)=>{
   const newUser=req.body.name;
   users.push(newUser)
-  res.status(201).send(`Adding a new user ${newUser}`)
+//   res.status(201).send(`Adding a new user ${newUser}`)
+    sendResponse(res,201,newUser)
 }
 
 module.exports={

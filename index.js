@@ -2,6 +2,7 @@ const express=require('express')
 const app=express();
 app.use(express.json());
 const path=require('path')
+const {sendErrorResponse,sendResponse}=require('./utils/response.js')
 
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -19,7 +20,8 @@ app.use('/api/products',productRoute)
 
 app.use((req,res)=>{
 
-   res.send("Page not found")
+   // res.send("Page not found")
+   sendErrorResponse(res,{message:"Page not found",statusCode:404})
 
 })
 
